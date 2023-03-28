@@ -1,0 +1,34 @@
+<mat-expansion-panel (opened)="summaryVisible = true" (closed)="summaryVisible = false">
+    <mat-expansion-panel-header>
+        <mat-panel-title>
+            Summary
+        </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <mat-list>
+        <mat-list-item>
+            <mat-icon matListItemIcon>account_circle</mat-icon>
+            <div matListItemTitle>{{totalEmployeesAmount$ | async}}</div>
+            <div matListItemLine>Total employees amount</div>
+        </mat-list-item>
+        <mat-list-item>
+            <mat-icon matListItemIcon>schedule</mat-icon>
+            <div matListItemTitle>{{totalClockedInHours$ | async | number: '1.0-0'}}</div>
+            <div matListItemLine>Total clocked in hours</div>
+        </mat-list-item>
+        <mat-list-item>
+            <mat-icon matListItemIcon>monetization_on</mat-icon>
+            <div matListItemTitle>{{totalRegularPay$ | async | currency}}</div>
+            <div matListItemLine>Total pay for regular hours</div>
+        </mat-list-item>
+        <mat-list-item>
+            <mat-icon matListItemIcon>monetization_on</mat-icon>
+            <div matListItemTitle>{{totalOvertimePay$ | async | currency}}</div>
+            <div matListItemLine>Total pay for overtime hours</div>
+        </mat-list-item>
+    </mat-list>
+</mat-expansion-panel>
+
+
+
+<app-employee-table></app-employee-table>

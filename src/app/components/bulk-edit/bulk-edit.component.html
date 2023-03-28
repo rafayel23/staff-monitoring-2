@@ -1,0 +1,19 @@
+<h2 mat-dialog-title>Employee Editor</h2>
+
+<mat-dialog-content>
+    <section *ngFor="let employee of employees$ | async; index as i">
+      <h3>{{i + 1}}. Employee</h3>
+
+      <app-employee-editor [employee]="employee"></app-employee-editor>
+
+      <h4>Shifts</h4>
+
+      <app-shift-editor [employee]="employee"></app-shift-editor>
+    </section>
+
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-raised-button (click)="save()">Save</button>
+  <button mat-button mat-dialog-close>Cancel</button>
+</mat-dialog-actions>
