@@ -19,7 +19,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 
 import { AppComponent } from './app.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { SummaryComponent } from './components/summary/summary.component';
 import { EmployeeTableComponent } from './components/employee-table/employee-table.component'
 import { BulkEditComponent } from './components/bulk-edit/bulk-edit.component';
 import { EmployeeEditorComponent } from './components/bulk-edit/employee-editor/employee-editor.component';
@@ -35,7 +35,7 @@ import { forkJoin } from 'rxjs';
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent,
+    SummaryComponent,
     EmployeeTableComponent,
     BulkEditComponent,
     EmployeeEditorComponent,

@@ -28,11 +28,6 @@ export class EmployeeTableComponent implements OnInit {
   ngOnInit() {
     this.totalEmployeesAmount$ = this.state.totalEmployeesAmount$
     this.statistics$ = this.state.statistics$;
-
-    this.selection.changed.subscribe(() => {
-      this.state.setSelectedEmployees(this.selection.selected);
-    })
-    
     this.employees$ = this.paginator.page.pipe(
       startWith({pageIndex: 0, pageSize: 5}),
       withLatestFrom(this.state.employees$),
@@ -43,6 +38,8 @@ export class EmployeeTableComponent implements OnInit {
   }
 
   openEditorDialog() {
+    this.state.setSelectedEmployees(this.selection.selected)
+    
     this.dialog.open(BulkEditComponent, {
       width: '90%',
       disableClose: true,

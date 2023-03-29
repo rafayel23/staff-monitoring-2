@@ -1,13 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { StateService } from 'src/app/services/state.service';
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss'],
+  selector: 'app-summary',
+  templateUrl: './summary.component.html',
+  styleUrls: ['./summary.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class DashboardComponent implements OnInit {
+export class SummaryComponent implements OnInit {
 
   totalEmployeesAmount$: Observable<number>;
   totalClockedInHours$: Observable<number>;
@@ -23,4 +24,5 @@ export class DashboardComponent implements OnInit {
     this.totalRegularPay$ = this.state.totalRegularPay$;
     this.totalOvertimePay$ = this.state.totalOvertimePay$;
   }
+
 }
