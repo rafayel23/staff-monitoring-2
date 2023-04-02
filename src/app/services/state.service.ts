@@ -30,15 +30,15 @@ export class StateService {
     map(shifts => this.summary.getTotalClockedInHours(shifts))
   )
 
-  public totalRegularPay$: Observable<number> = combineLatest([this._employees$, this.shifts$]).pipe(
+  public totalRegularPay$: Observable<number> = combineLatest([this.employees$, this.shifts$]).pipe(
     map(([employees, shifts]) => this.summary.getTotalRegularPay(employees, shifts))
   )
 
-  public totalOvertimePay$: Observable<number> = combineLatest([this._employees$, this.shifts$]).pipe(
+  public totalOvertimePay$: Observable<number> = combineLatest([this.employees$, this.shifts$]).pipe(
     map(([employees, shifts]) => this.summary.getTotalOvertimePay(employees, shifts))
   )
 
-  public statistics$: Observable<Record<string, Statistics>> = combineLatest([this._employees$, this.shifts$]).pipe(
+  public statistics$: Observable<Record<string, Statistics>> = combineLatest([this.employees$, this.shifts$]).pipe(
     map(([employees, shifts]) => employees.reduce((statistics, emp) => {
       return {
         ...statistics,
