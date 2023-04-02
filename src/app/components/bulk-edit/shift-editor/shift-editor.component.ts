@@ -36,13 +36,6 @@ export class ShiftEditorComponent implements OnInit {
       tap(shifts => {
         this.form = this.fb.array(shifts.map(shift => this.fb.group(shift)))
       })
-    ) 
-
-    this.state.shifts$.pipe(
-      map(shifts => this.summary.findEmployeeShifts(this.employee, shifts)),
-      tap(shifts => {
-        this.form = this.fb.array(shifts.map(shift => this.fb.group(shift)))
-      })
     )
   }
 
